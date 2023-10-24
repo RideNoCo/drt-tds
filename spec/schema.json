@@ -375,7 +375,7 @@
           "minLength": 1
         },
         "street": { "type": "string" },
-        "street2": { "type": "integer" },
+        "street2": { "type": "string" },
         "notes": {
           "type": "string",
           "example": "Green door around the back"

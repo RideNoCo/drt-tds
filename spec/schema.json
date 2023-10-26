@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "TDS TRCPSchema v0.1",
-  "description": "Based on XML Schema tcrp.demandtrans.com_TCRPSchema V0.8-proposed",
+  "title": "TDS TRCPSchema v0.2",
+  "description": "Based on XML Schema tcrp.demandtrans.com_TCRPSchema V0.8-proposed.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -53,6 +53,7 @@
           "description": "Open attribute for local use"
         },
         "tripPurpose": { "$ref": "#/$defs/TripPurposeList" },
+        "tripTransfer": { "type": [ "boolean", "null" ] },
         "notesForDriver": {
           "type": "string"
         }
@@ -375,17 +376,17 @@
           "minLength": 1
         },
         "street": { "type": "string", "minLength": 1 },
-        "street2": { "type": "string" },
+        "street2": { "type": [ "string", "null" ] },
         "notes": {
           "type": "string",
           "example": "Green door around the back"
         },
-        "city": { "type": "string", "minLength": 1  },
-        "state": { "type": "string", "minLength": 1  },
-        "postalCode": { "type": "string", "minLength": 1  },
-        "country": { "type": "string", "minLength": 1  },
-        "lat": { "type": "integer" },
-        "long": { "type": "integer" }
+        "city": { "type": "string", "minLength": 1 },
+        "state": { "type": "string", "minLength": 1 },
+        "postalCode": { "type": "string", "minLength": 1 },
+        "country": { "type": "string", "minLength": 1 },
+        "lat": { "type": "integer", "minimim": -180, "maxumim": 180 },
+        "long": { "type": "integer", "minimim": -180, "maxumim": 180 }
       },
       "required": [ "addressName", "street", "city", "state", "postalCode", "country" ]
     },

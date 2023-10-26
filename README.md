@@ -13,3 +13,6 @@ The original schema definitions files can be found at the [DemandTrans website](
 - [https://www.learnjsonschema.com/2020-12/](https://www.learnjsonschema.com/2020-12/)
 ## Swagger
 - https://app.swaggerhub.com/apis/full-path/RideNoCo-TDS
+
+## Validator by RideScheduler
+- [tdsvalidator.com](http://tdsvalidator.com/)

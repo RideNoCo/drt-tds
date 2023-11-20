@@ -385,7 +385,7 @@
         "state": { "type": "string", "minLength": 1 },
         "postalCode": { "type": "string", "minLength": 1 },
         "country": { "type": "string", "minLength": 1 },
-        "lat": { "type": "integer", "minimim": -180, "maxumim": 180 },
+        "lat": { "type": "integer", "minimim": -90, "maxumim": 90 },
         "long": { "type": "integer", "minimim": -180, "maxumim": 180 }
       },
       "required": [ "addressName", "street", "city", "state", "postalCode", "country" ]

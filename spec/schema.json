@@ -395,7 +395,7 @@
       "type": "object",
       "description": "Should normally be the local time.",
       "properties": {
-        "TimeAccuracy": {
+        "timeAccuracy": {
           "type": "string",
           "description": "Used to indicate accepted deviation in attribute time"
         },
@@ -404,11 +404,11 @@
           "format": "date-time",
           "description": "Timezone used in comunication. Default is local timezone. See ISO 8601 for more information."
         },
-        "DwellTime": {
+        "dwellTime": {
           "type": "integer",
           "description": "Time used to finish this node"
         },
-        "TimeType": { "$ref": "#/$defs/TimeType" }
+        "timeType": { "$ref": "#/$defs/TimeType" }
       },
       "required": [ "time" ]
     },

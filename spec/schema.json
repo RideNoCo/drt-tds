@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "TDS TRCPSchema v0.2",
+  "title": "TDS TRCPSchema v0.3",
   "description": "Based on XML Schema tcrp.demandtrans.com_TCRPSchema V0.8-proposed.",
   "type": "object",
   "additionalProperties": false,
@@ -385,8 +385,8 @@
         "state": { "type": "string", "minLength": 1 },
         "postalCode": { "type": "string", "minLength": 1 },
         "country": { "type": "string", "minLength": 1 },
-        "lat": { "type": [ "integer", "null" ], "minimim": -180, "maxumim": 180 },
-        "long": { "type": [ "integer", "null" ], "minimim": -180, "maxumim": 180 }
+        "lat": { "type": [ "integer", "null" ], "minimim": -90, "maximum": 90 },
+        "long": { "type": [ "integer", "null" ], "minimim": -180, "maximum": 180 }
       },
       "required": [ "addressName", "street", "city", "state", "postalCode", "country" ]
     },
@@ -395,7 +395,7 @@
       "type": "object",
       "description": "Should normally be the local time.",
       "properties": {
-        "TimeAccuracy": {
+        "timeAccuracy": {
           "type": [ "string", "null" ],
           "description": "Used to indicate accepted deviation in attribute time"
         },
@@ -404,11 +404,11 @@
           "format": "date-time",
           "description": "Timezone used in comunication. Default is local timezone. See ISO 8601 for more information."
         },
-        "DwellTime": {
+        "dwellTime": {
           "type": [ "integer", "null" ],
           "description": "Time used to finish this node"
         },
-        "TimeType": { "$ref": "#/$defs/TimeType" }
+        "timeType": { "$ref": "#/$defs/TimeType" }
       },
       "required": [ "time" ]
     },

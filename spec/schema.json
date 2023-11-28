@@ -147,9 +147,8 @@
         },
         "speed": {
           "allOf": [
-            { "$ref": "#/$defs/numberNullable" },
+            { "$ref": "#/$defs/floatNullable" },
             {
-              "format": "float",
               "description": "Speed shall be from GPS-unit in vehicle and measured in meter per second."
             }
           ]

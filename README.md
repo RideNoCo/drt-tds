@@ -7,8 +7,6 @@ The original schema definitions files can be found at the [DemandTrans website](
 # JSON Schema Links
 ## Specification
 - [https://json-schema.org/draft/2020-12/json-schema-core](https://json-schema.org/draft/2020-12/json-schema-core)
-## Validators 
-- [https://json-schema.org/implementations#validators](https://json-schema.org/implementations#validators)
 ## Docs
 - [https://www.learnjsonschema.com/2020-12/](https://www.learnjsonschema.com/2020-12/)
 ## Swagger

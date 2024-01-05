@@ -273,6 +273,7 @@
       "properties": {
         "customerReferralId": {
           "type": "string",
+          "format": "uuid",
           "description": "unique ID from ordering client"
         },
         "customerContactDate": {
@@ -289,13 +290,19 @@
 
     "customerReferralResponse": {
       "type": "object",
-      "description": "Telegram #: 1C; Sent from ordering client To: trip provider(s) or ; trip provider to ordering client Purpose: to report trip status change due to being canceled or no longer available",
+      "description": "Telegram #: 0B; Sent from trip provider To: ordering client Purpose: To report the action taken by the trip provider based on the customer referral.",
       "properties": {
         "customerReferralId": {
           "type": "string",
+          "format": "uuid",
           "description": "unique ID from ordering client"
         },
-        "referralResponseType": { "$ref": "#/$defs/stringNullable" },
+        "referralResponseType": {
+          "allOf": [
+            { "$ref": "#/$defs/stringNullable" },
+            { "enum": [ "accept", "reject" ] }
+          ]
+        },
         "note": {
           "$ref": "#/$defs/stringNullable"
         }

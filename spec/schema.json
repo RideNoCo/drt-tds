@@ -33,13 +33,13 @@
         "detailedPickupLocationDescription": { "$ref": "#/$defs/stringNullable" },
         "dropoffAddress": { "$ref": "#/$defs/AddressType" },
         "detailedDropoffLocationDescription": { "$ref": "#/$defs/stringNullable" },
-        "pickupTime": { "$ref": "#/$defs/Time" },
-        "appointmentTime": { "$ref": "#/$defs/Time" },
-        "dropoffTime": { "$ref": "#/$defs/Time" },
-        "pickupWindowStartTime": { "$ref": "#/$defs/Time" },
-        "pickupWindowEndTime": { "$ref": "#/$defs/Time" },
+        "pickupTime": { "$ref": "#/$defs/timeNullable" },
+        "appointmentTime": { "$ref": "#/$defs/timeNullable" },
+        "dropoffTime": { "$ref": "#/$defs/timeNullable" },
+        "pickupWindowStartTime": { "$ref": "#/$defs/timeNullable" },
+        "pickupWindowEndTime": { "$ref": "#/$defs/timeNullable" },
         "detoursPermissible": { "$ref": "#/$defs/booleanNullable" },
-        "negotiatedPickupTime": { "$ref": "#/$defs/Time" },
+        "negotiatedPickupTime": { "$ref": "#/$defs/timeNullable" },
         "hardConstraintOnPickupTime": { "$ref": "#/$defs/booleanNullable" },
         "hardConstraintOnDropoffTime": { "$ref": "#/$defs/booleanNullable" },
         "customerInfo": { "$ref": "#/$defs/CustomerInfoType" },
@@ -511,6 +511,13 @@
     "floatNullable": {
       "type": [ "number", "null" ],
       "format": "float"
+    },
+
+    "timeNullable": {
+      "oneOf": [
+          {"type": "null"},
+          {"$ref": "#/$defs/Time"}
+      ]
     },
 
     "stringNotEmpty": {

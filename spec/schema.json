@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "TDS TRCPSchema v0.4",
+  "title": "TDS TRCPSchema v0.5",
   "description": "Based on XML Schema tcrp.demandtrans.com_TCRPSchema V0.8-proposed.",
   "type": "object",
   "additionalProperties": false,

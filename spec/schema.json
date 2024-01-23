@@ -322,10 +322,10 @@
       "type": "object",
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
-        "firstLegalName": { "$ref": "#/$defs/stringNullable" },
+        "firstLegalName": { "$ref": "#/$defs/stringNotEmpty" },
         "nickName": { "$ref": "#/$defs/stringNullable" },
         "middleName": { "$ref": "#/$defs/stringNullable" },
-        "lastName": { "$ref": "#/$defs/stringNullable" },
+        "lastName": { "$ref": "#/$defs/stringNotEmpty" },
         "address": { "$ref": "#/$defs/AddressType" },
         "phone": { "$ref": "#/$defs/stringNullable" },
         "mobilePhone": { "$ref": "#/$defs/stringNullable" },
@@ -352,9 +352,10 @@
             { "format": "date" }
           ]
         },
-        "customerId": { "$ref": "#/$defs/stringNullable" },
+        "customerId": { "$ref": "#/$defs/stringNotEmpty" },
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
-      }
+      },
+      "required": [ "firstLegalName", "lastName", "customerId" ]
     },
 
     "AddressType": {

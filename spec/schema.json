@@ -363,7 +363,7 @@
       "properties": {
         "addressName": {
           "allOf": [
-            { "$ref": "#/$defs/stringNotEmpty" },
+            { "$ref": "#/$defs/stringNullable" },
             { "example": "McDonalds" }
           ]
         },
@@ -398,7 +398,7 @@
           ]
         }
       },
-      "required": [ "addressName", "street", "city", "state", "postalCode", "country" ]
+      "required": [ "street", "city", "state", "postalCode", "country" ]
     },
 
     "Time": {

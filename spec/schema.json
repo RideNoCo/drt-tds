@@ -70,7 +70,7 @@
         "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
         "transferPoint": { "$ref": "#/$defs/AddressType" },
         "PaymentTypeList": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" },
+        "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": {
           "$ref": "#/$defs/ValueList"
         }
@@ -102,7 +102,7 @@
         "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
         "transferPoint": { "$ref": "#/$defs/AddressType" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" },
+        "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": { "$ref": "#/$defs/ValueList" },
         "vehicleNumber": { "$ref": "#/$defs/stringNullable" },
         "driverId": { "$ref": "#/$defs/stringNullable" },
@@ -139,8 +139,8 @@
           "enum": [ "WGS84", "WGS-84", "RT90" ],
           "nullable": false
         },
-        "lat": { "type": "integer" },
-        "long": { "type": "integer" },
+        "lat": { "type": "float" },
+        "long": { "type": "float" },
         "precision": {
           "type": "integer",
           "description": "Precision shall be from GPS-unit in vehicle and measured in meter. This is the deviation in position measured by the &gt;GPS-unit."
@@ -214,7 +214,7 @@
         },
         "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" }
+        "fareAmount": { "$ref": "#/$defs/floatNullable" }
       },
       "required": [ "tripTicketId" ]
     },
@@ -249,12 +249,12 @@
       "description": "Telegram #: 4A; From: trip provider(s); To: ordering client; Purpose: performed trip data",
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
-        "cost": { "type": "integer" },
+        "cost": { "type": "float" },
         "performedPickupPoint": { "$ref": "#/$defs/AddressType" },
         "performedPickupTime": { "$ref": "#/$defs/Time" },
         "performedDropoffPoint": { "$ref": "#/$defs/AddressType" },
         "performedDropoffTime": { "$ref": "#/$defs/Time" },
-        "performedDistance": { "$ref": "#/$defs/integerNullable" },
+        "performedDistance": { "$ref": "#/$defs/floatNullable" },
         "performedDistanceUnit": { "$ref": "#/$defs/DistanceUnitList" },
         "performedDurationInMinutes": { "$ref": "#/$defs/integerNullable" },
         "detourOccur": { "$ref": "#/$defs/booleanNullable" },
@@ -382,7 +382,7 @@
         "country": { "$ref": "#/$defs/stringNotEmpty" },
         "lat": {
           "allOf": [
-            { "$ref": "#/$defs/integerNullable" },
+            { "$ref": "#/$defs/floatNullable" },
             {
               "minimum": -90,
               "maximum": 90
@@ -391,7 +391,7 @@
         },
         "long": {
           "allOf": [
-            { "$ref": "#/$defs/integerNullable" },
+            { "$ref": "#/$defs/floatNullable" },
             {
               "minimum": -180,
               "maximum": 180

@@ -65,7 +65,7 @@
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "tripAvailable": { "type": "boolean" },
-        "scheduledPickupTime": { "$ref": "#/$defs/Time" },
+        "scheduledPickupTime": { "$ref": "#/$defs/timeNullable" },
         "scheduledPickupPoint": { "$ref": "#/$defs/AddressType" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
         "transferPoint": { "$ref": "#/$defs/AddressType" },
@@ -97,7 +97,7 @@
       "description": "Telegram #: 2B; From: trip provider; To: ordering client; Purpose: confirm trip is scheduled",
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
-        "scheduledPickupTime": { "$ref": "#/$defs/Time" },
+        "scheduledPickupTime": { "$ref": "#/$defs/timeNullable" },
         "scheduledPickupPoint": { "$ref": "#/$defs/AddressType" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
         "transferPoint": { "$ref": "#/$defs/AddressType" },
@@ -108,7 +108,7 @@
         "driverId": { "$ref": "#/$defs/stringNullable" },
         "driverName": { "$ref": "#/$defs/stringNullable" },
         "vehicleInformation": { "$ref": "#/$defs/stringNullable" },
-        "availabilityForService": { "$ref": "#/$defs/Time" },
+        "availabilityForService": { "$ref": "#/$defs/timeNullable" },
         "fuelRange": { "$ref": "#/$defs/integerNullable" },
         "ambulatorySpacePoints": { "$ref": "#/$defs/integerNullable" },
         "largeWheelchairSpacePoints": { "$ref": "#/$defs/integerNullable" },
@@ -194,14 +194,14 @@
           "minimum": 0
         },
         "pickupNodeAddress": { "$ref": "#/$defs/AddressType" },
-        "pickupNodeScheduledTime": { "$ref": "#/$defs/Time" },
+        "pickupNodeScheduledTime": { "$ref": "#/$defs/timeNullable" },
         "detailedPickupLocationDescription": { "$ref": "#/$defs/stringNullable" },
         "customerDropoffLocInVehPerformanceSequence": {
           "type": "integer",
           "minimum": 0
         },
         "dropoffNodeAddress": { "$ref": "#/$defs/AddressType" },
-        "dropoffNodeScheduledTime": { "$ref": "#/$defs/Time" },
+        "dropoffNodeScheduledTime": { "$ref": "#/$defs/timeNullable" },
         "detailedDropoffLocationDescription": { "$ref": "#/$defs/stringNullable" },
         "customerMobilePhone": { "$ref": "#/$defs/stringNullable" },
         "customerName": { "type": "string" },
@@ -233,7 +233,7 @@
           "type": "integer",
           "minimum": 0
         },
-        "nodePerformedTime": { "$ref": "#/$defs/Time" },
+        "nodePerformedTime": { "$ref": "#/$defs/timeNullable" },
         "vehicleNumber": { "$ref": "#/$defs/stringNullable" },
         "tripStatus": {
           "type": "string",
@@ -251,9 +251,9 @@
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "cost": { "type": "integer" },
         "performedPickupPoint": { "$ref": "#/$defs/AddressType" },
-        "performedPickupTime": { "$ref": "#/$defs/Time" },
+        "performedPickupTime": { "$ref": "#/$defs/timeNullable" },
         "performedDropoffPoint": { "$ref": "#/$defs/AddressType" },
-        "performedDropoffTime": { "$ref": "#/$defs/Time" },
+        "performedDropoffTime": { "$ref": "#/$defs/timeNullable" },
         "performedDistance": { "$ref": "#/$defs/integerNullable" },
         "performedDistanceUnit": { "$ref": "#/$defs/DistanceUnitList" },
         "performedDurationInMinutes": { "$ref": "#/$defs/integerNullable" },

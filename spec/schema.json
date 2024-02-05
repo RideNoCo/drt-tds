@@ -69,7 +69,7 @@
         "scheduledPickupPoint": { "$ref": "#/$defs/AddressType" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
         "transferPoint": { "$ref": "#/$defs/AddressType" },
-        "PaymentTypeList": { "$ref": "#/$defs/PaymentTypeList" },
+        "paymentTypeList": { "$ref": "#/$defs/PaymentTypeList" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": {
           "$ref": "#/$defs/ValueList"

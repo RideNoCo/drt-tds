@@ -321,7 +321,6 @@
     "CustomerInfoType": {
       "type": "object",
       "properties": {
-        "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "firstLegalName": { "$ref": "#/$defs/stringNotEmpty" },
         "nickName": { "$ref": "#/$defs/stringNullable" },
         "middleName": { "$ref": "#/$defs/stringNullable" },

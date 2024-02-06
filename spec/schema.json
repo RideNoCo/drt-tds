@@ -66,9 +66,9 @@
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "tripAvailable": { "type": "boolean" },
         "scheduledPickupTime": { "$ref": "#/$defs/timeNullable" },
-        "scheduledPickupPoint": { "$ref": "#/$defs/AddressType" },
-        "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
-        "transferPoint": { "$ref": "#/$defs/AddressType" },
+        "scheduledPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
+        "scheduledDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
+        "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "paymentTypeList": { "$ref": "#/$defs/PaymentTypeList" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": {
@@ -98,9 +98,9 @@
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "scheduledPickupTime": { "$ref": "#/$defs/timeNullable" },
-        "scheduledPickupPoint": { "$ref": "#/$defs/AddressType" },
-        "scheduledDropoffPoint": { "$ref": "#/$defs/AddressType" },
-        "transferPoint": { "$ref": "#/$defs/AddressType" },
+        "scheduledPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
+        "scheduledDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
+        "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": { "$ref": "#/$defs/ValueList" },
@@ -250,15 +250,15 @@
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "cost": { "type": "floatNullable" },
-        "performedPickupPoint": { "$ref": "#/$defs/AddressType" },
+        "performedPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "performedPickupTime": { "$ref": "#/$defs/timeNullable" },
-        "performedDropoffPoint": { "$ref": "#/$defs/AddressType" },
+        "performedDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "performedDropoffTime": { "$ref": "#/$defs/timeNullable" },
         "performedDistance": { "$ref": "#/$defs/floatNullable" },
         "performedDistanceUnit": { "$ref": "#/$defs/DistanceUnitList" },
         "performedDurationInMinutes": { "$ref": "#/$defs/integerNullable" },
         "detourOccur": { "$ref": "#/$defs/booleanNullable" },
-        "transferPoint": { "$ref": "#/$defs/AddressType" },
+        "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
         "fareAmount": { "$ref": "#/$defs/integerNullable" },
         "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
@@ -325,10 +325,10 @@
         "nickName": { "$ref": "#/$defs/stringNullable" },
         "middleName": { "$ref": "#/$defs/stringNullable" },
         "lastName": { "$ref": "#/$defs/stringNotEmpty" },
-        "address": { "$ref": "#/$defs/AddressType" },
+        "address": { "$ref": "#/$defs/addressTypeNullable" },
         "phone": { "$ref": "#/$defs/stringNullable" },
         "mobilePhone": { "$ref": "#/$defs/stringNullable" },
-        "mailingBillingAddress": { "$ref": "#/$defs/AddressType" },
+        "mailingBillingAddress": { "$ref": "#/$defs/addressTypeNullable" },
         "fundingEntityBillingInformation": { "$ref": "#/$defs/stringNullable" },
         "fundingType": { "$ref": "#/$defs/booleanNullable" },
         "fundingEntityId": { "type": "string" },
@@ -511,6 +511,13 @@
     "floatNullable": {
       "type": [ "number", "null" ],
       "format": "float"
+    },
+
+    "addressTypeNullable": {
+      "oneOf": [
+          {"type": "null"},
+          {"$ref": "#/$defs/AddressType"}
+      ]
     },
 
     "timeNullable": {

@@ -65,12 +65,12 @@
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "tripAvailable": { "type": "boolean" },
-        "scheduledPickupTime": { "$ref": "#/$defs/Time" },
+        "scheduledPickupTime": { "$ref": "#/$defs/timeNullable" },
         "scheduledPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "paymentTypeList": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" },
+        "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": {
           "$ref": "#/$defs/ValueList"
         }
@@ -97,18 +97,18 @@
       "description": "Telegram #: 2B; From: trip provider; To: ordering client; Purpose: confirm trip is scheduled",
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
-        "scheduledPickupTime": { "$ref": "#/$defs/Time" },
+        "scheduledPickupTime": { "$ref": "#/$defs/timeNullable" },
         "scheduledPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" },
+        "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": { "$ref": "#/$defs/ValueList" },
         "vehicleNumber": { "$ref": "#/$defs/stringNullable" },
         "driverId": { "$ref": "#/$defs/stringNullable" },
         "driverName": { "$ref": "#/$defs/stringNullable" },
         "vehicleInformation": { "$ref": "#/$defs/stringNullable" },
-        "availabilityForService": { "$ref": "#/$defs/Time" },
+        "availabilityForService": { "$ref": "#/$defs/timeNullable" },
         "fuelRange": { "$ref": "#/$defs/integerNullable" },
         "ambulatorySpacePoints": { "$ref": "#/$defs/integerNullable" },
         "largeWheelchairSpacePoints": { "$ref": "#/$defs/integerNullable" },
@@ -139,8 +139,8 @@
           "enum": [ "WGS84", "WGS-84", "RT90" ],
           "nullable": false
         },
-        "lat": { "type": "integer" },
-        "long": { "type": "integer" },
+        "lat": { "type": "floatNullable" },
+        "long": { "type": "floatNullable" },
         "precision": {
           "type": "integer",
           "description": "Precision shall be from GPS-unit in vehicle and measured in meter. This is the deviation in position measured by the &gt;GPS-unit."
@@ -194,14 +194,14 @@
           "minimum": 0
         },
         "pickupNodeAddress": { "$ref": "#/$defs/AddressType" },
-        "pickupNodeScheduledTime": { "$ref": "#/$defs/Time" },
+        "pickupNodeScheduledTime": { "$ref": "#/$defs/timeNullable" },
         "detailedPickupLocationDescription": { "$ref": "#/$defs/stringNullable" },
         "customerDropoffLocInVehPerformanceSequence": {
           "type": "integer",
           "minimum": 0
         },
         "dropoffNodeAddress": { "$ref": "#/$defs/AddressType" },
-        "dropoffNodeScheduledTime": { "$ref": "#/$defs/Time" },
+        "dropoffNodeScheduledTime": { "$ref": "#/$defs/timeNullable" },
         "detailedDropoffLocationDescription": { "$ref": "#/$defs/stringNullable" },
         "customerMobilePhone": { "$ref": "#/$defs/stringNullable" },
         "customerName": { "type": "string" },
@@ -214,7 +214,7 @@
         },
         "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" }
+        "fareAmount": { "$ref": "#/$defs/floatNullable" }
       },
       "required": [ "tripTicketId" ]
     },
@@ -233,7 +233,7 @@
           "type": "integer",
           "minimum": 0
         },
-        "nodePerformedTime": { "$ref": "#/$defs/Time" },
+        "nodePerformedTime": { "$ref": "#/$defs/timeNullable" },
         "vehicleNumber": { "$ref": "#/$defs/stringNullable" },
         "tripStatus": {
           "type": "string",
@@ -249,12 +249,12 @@
       "description": "Telegram #: 4A; From: trip provider(s); To: ordering client; Purpose: performed trip data",
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
-        "cost": { "type": "integer" },
+        "cost": { "type": "floatNullable" },
         "performedPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
-        "performedPickupTime": { "$ref": "#/$defs/Time" },
+        "performedPickupTime": { "$ref": "#/$defs/timeNullable" },
         "performedDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
-        "performedDropoffTime": { "$ref": "#/$defs/Time" },
-        "performedDistance": { "$ref": "#/$defs/integerNullable" },
+        "performedDropoffTime": { "$ref": "#/$defs/timeNullable" },
+        "performedDistance": { "$ref": "#/$defs/floatNullable" },
         "performedDistanceUnit": { "$ref": "#/$defs/DistanceUnitList" },
         "performedDurationInMinutes": { "$ref": "#/$defs/integerNullable" },
         "detourOccur": { "$ref": "#/$defs/booleanNullable" },
@@ -321,7 +321,6 @@
     "CustomerInfoType": {
       "type": "object",
       "properties": {
-        "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
         "firstLegalName": { "$ref": "#/$defs/stringNotEmpty" },
         "nickName": { "$ref": "#/$defs/stringNullable" },
         "middleName": { "$ref": "#/$defs/stringNullable" },
@@ -382,7 +381,7 @@
         "country": { "$ref": "#/$defs/stringNotEmpty" },
         "lat": {
           "allOf": [
-            { "$ref": "#/$defs/integerNullable" },
+            { "$ref": "#/$defs/floatNullable" },
             {
               "minimum": -90,
               "maximum": 90
@@ -391,7 +390,7 @@
         },
         "long": {
           "allOf": [
-            { "$ref": "#/$defs/integerNullable" },
+            { "$ref": "#/$defs/floatNullable" },
             {
               "minimum": -180,
               "maximum": 180

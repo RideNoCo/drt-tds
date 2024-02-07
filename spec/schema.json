@@ -139,8 +139,8 @@
           "enum": [ "WGS84", "WGS-84", "RT90" ],
           "nullable": false
         },
-        "lat": { "type": "floatNullable" },
-        "long": { "type": "floatNullable" },
+        "lat": { "$ref": "#/$defs/floatNullable" },
+        "long": { "$ref": "#/$defs/floatNullable" },
         "precision": {
           "type": "integer",
           "description": "Precision shall be from GPS-unit in vehicle and measured in meter. This is the deviation in position measured by the &gt;GPS-unit."
@@ -249,7 +249,7 @@
       "description": "Telegram #: 4A; From: trip provider(s); To: ordering client; Purpose: performed trip data",
       "properties": {
         "tripTicketId": { "$ref": "#/$defs/TripTicketIdProperty" },
-        "cost": { "type": "floatNullable" },
+        "cost": { "$ref": "#/$defs/floatNullable" },
         "performedPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "performedPickupTime": { "$ref": "#/$defs/timeNullable" },
         "performedDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },

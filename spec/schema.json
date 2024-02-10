@@ -260,7 +260,7 @@
         "detourOccur": { "$ref": "#/$defs/booleanNullable" },
         "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
-        "fareAmount": { "$ref": "#/$defs/integerNullable" },
+        "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
         "transportServices": { "$ref": "#/$defs/ValueList" }
       },

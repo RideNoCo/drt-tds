@@ -134,7 +134,17 @@
         "owner": { "$ref": "#/$defs/stringNullable" },
         "rideVibrationQuality": { "$ref": "#/$defs/stringNullable" }
       },
-      "required": [ "tripTicketId" ]
+      "required": [ "tripTicketId" ],
+      "oneOf": [
+        {
+          "required": ["driverId"],
+          "properties": {"driverId": {"$ref": "#/$defs/stringNotEmpty"}}
+        },
+        {
+          "required": ["driverName"],
+          "properties": {"driverName": {"$ref": "#/$defs/stringNotEmpty"}}
+        }
+      ]
     },
 
     "vehicleGeographicLocation": {

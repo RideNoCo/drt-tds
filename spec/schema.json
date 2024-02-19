@@ -358,7 +358,9 @@
         "language": { "$ref": "#/$defs/stringNullable" },
         "race": { "$ref": "#/$defs/stringNullable" },
         "ethnicity": { "$ref": "#/$defs/booleanNullable" },
-        "emailAddress": { "$ref": "#/$defs/stringNullable" },
+        "emailAddress": {
+          "allOf":[{ "$ref": "#/$defs/stringNullable", "format":"email" }]
+        },
         "veteran": { "$ref": "#/$defs/stringNullable" },
         "caregiverContactInformation": { "$ref": "#/$defs/stringNullable" },
         "emergencyPhoneNumber": { "$ref": "#/$defs/stringNullable" },
@@ -374,7 +376,21 @@
         "customerId": { "$ref": "#/$defs/stringNotEmpty" },
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
-      "required": [ "firstLegalName", "lastName", "customerId" ]
+      "required": [ "firstLegalName", "lastName", "customerId", "address" ]
+      "oneOf": [
+        {
+          "required": ["phone"],
+          "properties": {"phone": {"$ref": "#/$defs/stringNotEmpty"}}
+        },
+        {
+          "required": ["mobilePhone"],
+          "properties": {"mobilePhone": {"$ref": "#/$defs/stringNotEmpty"}}
+        },
+        {
+          "required": ["emailAddress"],
+          "properties": {"emailAddress": {"$ref": "#/$defs/stringNotEmpty"}}
+        }
+      ]
     },
 
     "AddressType": {

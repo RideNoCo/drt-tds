@@ -56,7 +56,17 @@
         "tripTransfer": { "$ref": "#/$defs/booleanNullable" },
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
-      "required": [ "tripTicketId" ]
+      "required": [ "tripTicketId","pickupAddress","dropoffAddress" ],
+      "oneOf": [
+        {
+          "required": ["pickupTime"],
+          "properties": {"pickupTime": {"$ref": "#/$defs/Time"}}
+        },
+        {
+          "required": ["appointmentTime"],
+          "properties": {"appointmentTime": {"$ref": "#/$defs/Time"}}
+        }
+      ]
     },
 
     "tripRequestResponse": {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "TDS TRCPSchema v0.5",
+  "title": "TDS TRCPSchema v0.6",
   "description": "Based on XML Schema tcrp.demandtrans.com_TCRPSchema V0.8-proposed.",
   "type": "object",
   "additionalProperties": false,
@@ -56,7 +56,17 @@
         "tripTransfer": { "$ref": "#/$defs/booleanNullable" },
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
-      "required": [ "tripTicketId" ]
+      "required": [ "tripTicketId","pickupAddress","dropoffAddress" ],
+      "oneOf": [
+        {
+          "required": ["pickupTime"],
+          "properties": {"pickupTime": {"$ref": "#/$defs/Time"}}
+        },
+        {
+          "required": ["appointmentTime"],
+          "properties": {"appointmentTime": {"$ref": "#/$defs/Time"}}
+        }
+      ]
     },
 
     "tripRequestResponse": {
@@ -124,7 +134,17 @@
         "owner": { "$ref": "#/$defs/stringNullable" },
         "rideVibrationQuality": { "$ref": "#/$defs/stringNullable" }
       },
-      "required": [ "tripTicketId" ]
+      "required": [ "tripTicketId" ],
+      "oneOf": [
+        {
+          "required": ["driverId"],
+          "properties": {"driverId": {"$ref": "#/$defs/stringNotEmpty"}}
+        },
+        {
+          "required": ["driverName"],
+          "properties": {"driverName": {"$ref": "#/$defs/stringNotEmpty"}}
+        }
+      ]
     },
 
     "vehicleGeographicLocation": {
@@ -338,7 +358,9 @@
         "language": { "$ref": "#/$defs/stringNullable" },
         "race": { "$ref": "#/$defs/stringNullable" },
         "ethnicity": { "$ref": "#/$defs/booleanNullable" },
-        "emailAddress": { "$ref": "#/$defs/stringNullable" },
+        "emailAddress": {
+          "allOf":[{ "$ref": "#/$defs/stringNullable", "format":"email" }]
+        },
         "veteran": { "$ref": "#/$defs/stringNullable" },
         "caregiverContactInformation": { "$ref": "#/$defs/stringNullable" },
         "emergencyPhoneNumber": { "$ref": "#/$defs/stringNullable" },
@@ -354,7 +376,21 @@
         "customerId": { "$ref": "#/$defs/stringNotEmpty" },
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
-      "required": [ "firstLegalName", "lastName", "customerId" ]
+      "required": [ "firstLegalName", "lastName", "customerId", "address" ],
+      "oneOf": [
+        {
+          "required": ["phone"],
+          "properties": {"phone": {"$ref": "#/$defs/stringNotEmpty"}}
+        },
+        {
+          "required": ["mobilePhone"],
+          "properties": {"mobilePhone": {"$ref": "#/$defs/stringNotEmpty"}}
+        },
+        {
+          "required": ["emailAddress"],
+          "properties": {"emailAddress": {"$ref": "#/$defs/stringNotEmpty"}}
+        }
+      ]
     },
 
     "AddressType": {

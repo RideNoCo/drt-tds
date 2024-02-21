@@ -57,7 +57,7 @@
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
       "required": [ "tripTicketId","pickupAddress","dropoffAddress" ],
-      "oneOf": [
+      "anyOf": [
         {
           "required": ["pickupTime"],
           "properties": {"pickupTime": {"$ref": "#/$defs/Time"}}
@@ -135,7 +135,7 @@
         "rideVibrationQuality": { "$ref": "#/$defs/stringNullable" }
       },
       "required": [ "tripTicketId" ],
-      "oneOf": [
+      "anyOf": [
         {
           "required": ["driverId"],
           "properties": {"driverId": {"$ref": "#/$defs/stringNotEmpty"}}
@@ -377,7 +377,7 @@
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
       "required": [ "firstLegalName", "lastName", "customerId", "address" ],
-      "oneOf": [
+      "anyOf": [
         {
           "required": ["phone"],
           "properties": {"phone": {"$ref": "#/$defs/stringNotEmpty"}}

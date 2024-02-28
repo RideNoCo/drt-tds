@@ -1,4 +1,5 @@
 {
+
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "TDS TRCPSchema v0.6",
   "description": "Based on XML Schema tcrp.demandtrans.com_TCRPSchema V0.8-proposed.",
@@ -357,11 +358,11 @@
         "disability": { "$ref": "#/$defs/booleanNullable" },
         "language": { "$ref": "#/$defs/stringNullable" },
         "race": { "$ref": "#/$defs/stringNullable" },
-        "ethnicity": { "$ref": "#/$defs/booleanNullable" },
+        "ethnicity": { "$ref": "#/$defs/EthnicityCategoryList" },
         "emailAddress": {
           "allOf":[{ "$ref": "#/$defs/stringNullable", "format":"email" }]
         },
-        "veteran": { "$ref": "#/$defs/stringNullable" },
+        "veteran": { "$ref": "#/$defs/booleanNullable" },
         "caregiverContactInformation": { "$ref": "#/$defs/stringNullable" },
         "emergencyPhoneNumber": { "$ref": "#/$defs/stringNullable" },
         "emergencyContactName": { "$ref": "#/$defs/stringNullable" },
@@ -504,6 +505,11 @@
     "ValueList": {
       "type": "array",
       "items": { "type": "string" }
+    },
+
+    "EthnicityCategoryList": {
+      "type": "string",
+      "enum": [ "Hispanic or Latino", "Not Hispanic or Latino" ]
     },
 
     "VehicleDistance": {

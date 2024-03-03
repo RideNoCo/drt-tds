@@ -358,7 +358,7 @@
         "disability": { "$ref": "#/$defs/booleanNullable" },
         "language": { "$ref": "#/$defs/stringNullable" },
         "race": { "$ref": "#/$defs/stringNullable" },
-        "ethnicity": { "$ref": "#/$defs/EthnicityCategoryList" },
+        "ethnicity": { "$ref": "#/$defs/ethnicityCategoryNullable" },
         "emailAddress": {
           "allOf":[{ "$ref": "#/$defs/stringNullable", "format":"email" }]
         },
@@ -566,6 +566,13 @@
       "oneOf": [
           {"type": "null"},
           {"$ref": "#/$defs/Time"}
+      ]
+    },
+
+    "ethnicityCategoryNullable": {
+      "oneOf": [
+          {"type": "null"},
+          {"$ref": "#/$defs/EthnicityCategoryList"}
       ]
     },
 

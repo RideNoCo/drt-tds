@@ -347,8 +347,8 @@
         "middleName": { "$ref": "#/$defs/stringNullable" },
         "lastName": { "$ref": "#/$defs/stringNotEmpty" },
         "address": { "$ref": "#/$defs/addressTypeNullable" },
-        "phone": { "$ref": "#/$defs/stringNullable" },
-        "mobilePhone": { "$ref": "#/$defs/stringNullable" },
+        "phone": { "$ref": "#/$defs/phoneFormatNullable" },
+        "mobilePhone": { "$ref": "#/$defs/phoneFormatNullable" },
         "mailingBillingAddress": { "$ref": "#/$defs/addressTypeNullable" },
         "fundingEntityBillingInformation": { "$ref": "#/$defs/stringNullable" },
         "fundingType": { "$ref": "#/$defs/booleanNullable" },
@@ -512,6 +512,12 @@
       "enum": [ "Hispanic or Latino", "Not Hispanic or Latino" ]
     },
 
+    "phoneFormat": {
+      "type": "string",
+      "description": "Format is E.164. Example is: +19708009560"
+    },
+
+
     "VehicleDistance": {
       "type": "object",
       "properties": {
@@ -575,6 +581,13 @@
           {"$ref": "#/$defs/EthnicityCategoryList"}
       ]
     },
+
+    "phoneFormatNullable": {
+      "oneOf": [
+          {"type": "null"},
+          {"$ref": "#/$defs/phoneFormat"}
+      ]
+    },    
 
     "stringNotEmpty": {
       "type": [ "string" ],

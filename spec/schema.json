@@ -224,7 +224,7 @@
         "dropoffNodeAddress": { "$ref": "#/$defs/AddressType" },
         "dropoffNodeScheduledTime": { "$ref": "#/$defs/timeNullable" },
         "detailedDropoffLocationDescription": { "$ref": "#/$defs/stringNullable" },
-        "customerMobilePhone": { "$ref": "#/$defs/stringNullable" },
+        "customerMobilePhone": { "$ref": "#/$defs/phoneFormatNullable" },
         "customerName": { "type": "string" },
         "numOtherReservedPassengers": { "$ref": "#/$defs/integerNullable" },
         "notesForDriver": {
@@ -364,7 +364,7 @@
         },
         "veteran": { "$ref": "#/$defs/booleanNullable" },
         "caregiverContactInformation": { "$ref": "#/$defs/stringNullable" },
-        "emergencyPhoneNumber": { "$ref": "#/$defs/stringNullable" },
+        "emergencyPhoneNumber": { "$ref": "#/$defs/phoneFormatNullable" },
         "emergencyContactName": { "$ref": "#/$defs/stringNullable" },
         "emergencyContactRelationship": { "$ref": "#/$defs/stringNullable" },
         "requiredCareComments": { "$ref": "#/$defs/stringNullable" },
@@ -514,6 +514,7 @@
 
     "phoneFormat": {
       "type": "string",
+      "pattern": "^\+[1-9]\d{1,14}$",
       "description": "Format is E.164. Example is: +19708009560"
     },
 

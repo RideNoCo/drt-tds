@@ -514,7 +514,7 @@
 
     "phoneFormat": {
       "type": "string",
-      "pattern": "^\+[1-9]\d{1,14}$",
+      "pattern": "^\\+[1-9]\\d{1,14}$",
       "description": "Format is E.164. Example is: +19708009560"
     },
 

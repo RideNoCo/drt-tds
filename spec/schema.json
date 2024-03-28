@@ -306,7 +306,7 @@
           "$ref": "#/$defs/CustomerInfoType"
         }
       },
-      "required": [ "customerReferralId" ]
+      "required": [ "customerReferralId", "customerInfo" ]
     },
 
     "customerReferralResponse": {

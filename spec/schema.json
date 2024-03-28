@@ -319,16 +319,14 @@
           "description": "unique ID from ordering client"
         },
         "referralResponseType": {
-          "allOf": [
-            { "$ref": "#/$defs/stringNullable" },
-            { "enum": [ "accept", "reject" ] }
-          ]
+          "type": "string",
+          "enum": [ "accept", "reject" ]
         },
         "note": {
           "$ref": "#/$defs/stringNullable"
         }
       },
-      "required": [ "customerReferralId" ]
+      "required": [ "customerReferralId", "referralResponseType" ]
     }
 
   },

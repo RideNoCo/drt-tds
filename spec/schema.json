@@ -298,8 +298,10 @@
           "description": "unique ID from ordering client"
         },
         "customerContactDate": {
-          "type": "string",
-          "format": "date"
+          "allOf": [
+            { "$ref": "#/$defs/stringNullable" },
+            { "format": "date" }
+          ]
         },
         "note": { "$ref": "#/$defs/stringNullable" },
         "customerInfo": {

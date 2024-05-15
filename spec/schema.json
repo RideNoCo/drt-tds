@@ -44,7 +44,7 @@
         "hardConstraintOnPickupTime": { "$ref": "#/$defs/booleanNullable" },
         "hardConstraintOnDropoffTime": { "$ref": "#/$defs/booleanNullable" },
         "customerInfo": { "$ref": "#/$defs/CustomerInfoType" },
-        "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
+        "specialAttributes": { "$ref": "#/$defs/specialAttributesNullable" },
         "transportServices": { "$ref": "#/$defs/ValueList" },
         "numOtherReservedPassengers": { "$ref": "#/$defs/integerNullable" },
         "openAttribute": {
@@ -53,7 +53,7 @@
             { "description": "Open attribute for local use" }
           ]
         },
-        "tripPurpose": { "$ref": "#/$defs/TripPurposeList" },
+        "tripPurpose": { "$ref": "#/$defs/tripPurposeNullable" },
         "tripTransfer": { "$ref": "#/$defs/booleanNullable" },
         "notesForDriver": { "$ref": "#/$defs/stringNullable" }
       },
@@ -80,7 +80,7 @@
         "scheduledPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
-        "paymentTypeList": { "$ref": "#/$defs/PaymentTypeList" },
+        "paymentTypeList": { "$ref": "#/$defs/paymentTypeNullable" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": {
           "$ref": "#/$defs/ValueList"
@@ -112,7 +112,7 @@
         "scheduledPickupPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "scheduledDropoffPoint": { "$ref": "#/$defs/addressTypeNullable" },
         "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
-        "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
+        "paymentType": { "$ref": "#/$defs/paymentTypeNullable" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" },
         "transportServices": { "$ref": "#/$defs/ValueList" },
         "vehicleNumber": { "$ref": "#/$defs/stringNullable" },
@@ -233,8 +233,8 @@
             { "description": "Free-form long text field for notes to driver concerning customer service needs" }
           ]
         },
-        "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
-        "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
+        "specialAttributes": { "$ref": "#/$defs/specialAttributesNullable" },
+        "paymentType": { "$ref": "#/$defs/paymentTypeNullable" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" }
       },
       "required": [ "tripTicketId" ]
@@ -280,9 +280,9 @@
         "performedDurationInMinutes": { "$ref": "#/$defs/integerNullable" },
         "detourOccur": { "$ref": "#/$defs/booleanNullable" },
         "transferPoint": { "$ref": "#/$defs/addressTypeNullable" },
-        "paymentType": { "$ref": "#/$defs/PaymentTypeList" },
+        "paymentType": { "$ref": "#/$defs/paymentTypeNullable" },
         "fareAmount": { "$ref": "#/$defs/floatNullable" },
-        "specialAttributes": { "$ref": "#/$defs/SpecialAttributesList" },
+        "specialAttributes": { "$ref": "#/$defs/specialAttributesNullable" },
         "transportServices": { "$ref": "#/$defs/ValueList" }
       },
       "required": [ "tripTicketId" ]
@@ -588,7 +588,28 @@
           {"type": "null"},
           {"$ref": "#/$defs/phoneFormat"}
       ]
-    },    
+    },
+
+    "paymentTypeNullable": {
+      "oneOf": [
+          {"type": "null"},
+          {"$ref": "#/$defs/PaymentTypeList"}
+      ]
+    },
+
+    "specialAttributesNullable": {
+      "oneOf": [
+          {"type": "null"},
+          {"$ref": "#/$defs/SpecialAttributesList"}
+      ]
+    },
+
+    "tripPurposeNullable": {
+      "oneOf": [
+          {"type": "null"},
+          { "$ref": "#/$defs/TripPurposeList" }
+      ]
+    },
 
     "stringNotEmpty": {
       "type": [ "string" ],
